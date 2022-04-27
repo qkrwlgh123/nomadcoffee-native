@@ -33,6 +33,7 @@ export default function Login({ route: { params }, navigation }) {
     } = data;
     if (ok) {
       await logUserIn(token);
+      await navigation.navigate('Home');
     }
   };
   const [logInMutation, { loading }] = useMutation(LOGIN_MUTATION, {

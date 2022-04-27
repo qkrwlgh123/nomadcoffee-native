@@ -1,10 +1,9 @@
 import { gql, useQuery } from '@apollo/client';
 import React, { useState } from 'react';
 import { Text, View } from 'react-native';
-import { Image } from 'react-native';
-import { TouchableOpacity, TouchableWithoutFeedback } from 'react-native-web';
 import styled from 'styled-components/native';
 import { logUserOut } from '../apollo';
+import { colors } from '../colors';
 
 const Info = styled.Text`
   color: white;
@@ -25,8 +24,6 @@ const SEE_PROFILE_QUERY = gql`
 `;
 
 export default function Me() {
-  const [profile, setProfile] = useState({});
-
   const { data } = useQuery(SEE_PROFILE_QUERY);
 
   return (
@@ -43,7 +40,7 @@ export default function Me() {
       <Info>email : {data?.seeProfile?.email}</Info>
       <Info>location : {data?.seeProfile?.location}</Info>
       <Info>githubUsername : {data?.seeProfile?.githubUsername}</Info>
-      <Text onPress={() => logUserOut()} style={{ color: 'blue' }}>
+      <Text onPress={() => logUserOut()} style={{ color: colors.blue }}>
         Log out
       </Text>
     </View>

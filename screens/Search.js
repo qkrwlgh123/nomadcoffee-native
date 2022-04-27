@@ -11,7 +11,7 @@ export default function Search() {
         justifyContent: 'center',
       }}
     >
-      <Text style={{ color: 'white' }}>Search</Text>
+      <Text style={{ color: 'white' }}>Search Screen</Text>
     </View>
   );
 }

@@ -13,8 +13,9 @@ import CreateAccount from '../../screens/CreateAccount';
 
 const Stack = createNativeStackNavigator();
 
-export default function StackNavFactory({ screenName }) {
+export default function StackNavFactory({ screenName, navigation }) {
   const isLoggedIn = useReactiveVar(isLoggedInVar);
+
   return (
     <Stack.Navigator
       headerMode="screen"
@@ -44,6 +45,7 @@ export default function StackNavFactory({ screenName }) {
           }}
         />
       ) : null}
+
       {screenName === 'Search' ? (
         <Stack.Screen
           name={'Search'}
@@ -79,8 +81,9 @@ export default function StackNavFactory({ screenName }) {
           }}
         />
       ) : (
-        <Stack.Screen name={'Login'} component={Login} />
+        <Stack.Screen name="Login" component={Login} />
       )}
+
       <Stack.Screen name="CreateAccount" component={CreateAccount} />
       <Stack.Screen name="Profile" component={Profile} />
       <Stack.Screen name="Photo" component={Photo} />
